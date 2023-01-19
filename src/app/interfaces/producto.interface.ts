@@ -3,7 +3,7 @@ export interface ProductoInterface {
     estado: number,
     fechaRegistro: string,
     flag: number,
-    id:number,
+    id: number,
     idCategoria: number,
     nombre: string,
     precio: number
@@ -15,3 +15,12 @@ export interface ProductoGenerar {
     descripcion: string,
     precio: number
 }
+
+export interface BuscarProducto {
+    filtro: {
+        nombre: string,
+        categoria: string
+    }
+
+}
+

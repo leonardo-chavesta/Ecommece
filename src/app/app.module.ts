@@ -7,6 +7,9 @@ import { SharedModule } from './shared/shared.module';
 import {HttpClientModule} from '@angular/common/http'
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './pages/auth/login/login.component';
+import { RegisterComponent } from './pages/auth/register/register.component';
+import { PerfilComponent } from './pages/auth/perfil/perfil.component';
 
 @NgModule({
   declarations: [

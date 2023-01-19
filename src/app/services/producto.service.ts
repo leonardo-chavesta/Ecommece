@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../environments/environments';
-import { ProductoInterface } from '../interfaces/producto.interface';
+import { ProductoInterface, BuscarProducto } from '../interfaces/producto.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +18,12 @@ export class ProductoService {
       this.resultados = res
     })
   }
+  listaProductosPorFiltro(formBody: BuscarProducto ) {
+    this.http.post<ProductoInterface[]>(`${environment.productoAPI}/listarproductoasync/filtro`,formBody).subscribe(res => {
+      this.resultados = res
+    })
+  }
+
   postCrearProducto(formBody: any){
     return this.http.post(`${environment.productoAPI}/CrearProducto`, formBody)
   }

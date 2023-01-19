@@ -3,7 +3,6 @@
     <div class="flex items-center justify-between border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
       <div class="flex justify-start lg:w-0 lg:flex-1">
         <a href="#">
-          <span class="sr-only">Your Company</span>
           <img class="h-8 w-auto sm:h-10"
             src="https://imgs.search.brave.com/rvqPtnODnib0Q9qUJSdoTeZyP59yyvKx9XO6ZGpRa-8/rs:fit:880:610:1/g:ce/aHR0cHM6Ly93d3cu/cGluY2xpcGFydC5j/b20vcGljZGlyL21p/ZGRsZS81MjgtNTI4/MDEwN19lY29tbWVy/Y2Utc3RvcmUtbG9n/by1wbmctY2xpcGFy/dC5wbmc"
             alt="">
@@ -11,26 +10,47 @@
       </div>
       <nav class="hidden space-x-10 md:flex items-center">
         <a href="#" class="text-base font-medium text-gray-500 hover:text-gray-900">Juegos</a>
+
         <a href="#" class="text-base font-medium text-gray-500 hover:text-gray-900">Moda</a>
-        <a class="text-base font-medium text-gray-500 hover:text-gray-900">Mi Carrito</a>
-        <a routerLink="/GenerarProducto"
-          class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">Vender Producto</a>
+
+        <div class=" space-x-10" *ngIf="verific; else verificarLogin">
+          <a class="text-base font-medium text-gray-500 hover:text-gray-900">Mi Carrito</a>
+          <a routerLink="/GenerarProducto"
+            class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">Vender Producto</a>
+        </div>
+        <ng-template #verificarLogin>
+          <a href="#" class="text-base font-medium text-gray-500 hover:text-gray-900">Deporte</a>
+          <a href="#" class="text-base font-medium text-gray-500 hover:text-gray-900">Virtual</a>
+        </ng-template>
+
         <form class="row g-3 items-center">
           <div class="col-auto">
-            <input type="text" class="form-control" id="inputPassword2" placeholder="Buscardor...">
+            <input type="text" class="form-control" id="inputPassword2" placeholder="Buscar por Categoria">
           </div>
           <div class="col-auto">
-            <button type="button" class="btn btn-success">Buscar Producto</button>
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+              Buscar
+            </button>
           </div>
         </form>
       </nav>
       <div class="hidden items-center justify-end md:flex md:flex-1 lg:w-0">
-        <a href="#"
-          class="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Sign
-          up</a>
+        <div *ngIf="!verific; else veriBotonPerfil">
+          <a routerLink="/login"
+            class="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700">
+            Login</a>
+        </div>
+        <ng-template #veriBotonPerfil>
+          <div class="flex justify-start lg:w-0 lg:flex-1">
+            <a routerLink="/perfil">
+              <img class="h-8 w-auto sm:h-10"
+                src="https://imgs.search.brave.com/nRMC8W4zEH2eBu_m6IQsIWbwM3A0zGTSYo5dE4RU8Q8/rs:fit:820:860:1/g:ce/aHR0cHM6Ly93d3cu/bmljZXBuZy5jb20v/cG5nL2RldGFpbC8x/MjgtMTI4MDQwNl91/c2VyLWljb24tcG5n/LnBuZw"
+                alt="">
+            </a>
+          </div>
+
+        </ng-template>
       </div>
+
     </div>
   </div>
-</div>
-
-<!-- <app-list-producto /> -->

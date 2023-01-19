@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ProductoGenerar } from 'src/app/interfaces/producto.interface';
 import { ProductoService } from '../../../services/producto.service';
 
 @Component({
@@ -11,6 +10,8 @@ import { ProductoService } from '../../../services/producto.service';
 export class CrearProductoComponent implements OnInit  {
 
   miFormulario!: FormGroup
+
+  
 
   constructor(
     private productoSvc: ProductoService,

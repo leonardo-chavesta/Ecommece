@@ -13,7 +13,7 @@ export class AuthService {
     private http: HttpClient
   ) { }
   autentificarLogin(formBody: LoginInterface) {
-    return this.http.post(`${environment.authApi}/generate/token`, formBody);
+    return this.http.post(`${environment.authApi}/Generate/Token`, formBody);
   }
 }
 

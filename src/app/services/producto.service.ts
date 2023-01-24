@@ -14,7 +14,7 @@ export class ProductoService {
 
 
   listaProductos():void {
-    this.http.get<ProductoInterface[]>(environment.productoAPI).subscribe(res => {
+    this.http.get<ProductoInterface[]>(`${environment.productoAPI}/ListarProducto`).subscribe(res => {
       this.resultados = res
     })
   }

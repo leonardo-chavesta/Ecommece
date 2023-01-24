@@ -6,4 +6,8 @@ import { Component } from '@angular/core';
 })
 export class PerfilComponent {
 
+  cerrarSesion():void {
+    localStorage.removeItem('ApplicationData')
+    window.location.href = '/home'
+  }
 }

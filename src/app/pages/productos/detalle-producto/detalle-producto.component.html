@@ -11,7 +11,6 @@
             </svg>
           </div>
         </li>
-
         <li>
           <div class="flex items-center">
             <a href="#" class="mr-2 text-sm font-medium text-gray-900">Clothing</a>
@@ -21,7 +20,6 @@
             </svg>
           </div>
         </li>
-
         <li class="text-sm">
           <a href="#" aria-current="page" class="font-medium text-gray-500 hover:text-gray-600">Basic Tee 6-Pack</a>
         </li>
@@ -64,7 +62,7 @@
           <h2 class="font-medium text-gray-900">Precio: $/{{detalle.precio | number}}</h2>
         </div>
         <button (click)="EliminarProducto()" class="btn btn-danger mt-5">Eliminar Producto</button>
-        <button type="button" class="btn btn-warning mt-5">Añadir al Carrito</button>
+        <button (click)="enviarProductoCarrito()" class="btn btn-warning mt-5">Añadir al Carrito</button>
       </div>
     </div>
   </div>

@@ -27,6 +27,10 @@ const routes: Routes = [
   {
     path:'perfil',
     loadChildren: () => import('./pages/auth/perfil/perfil.module').then(m => m.PerfilModule)
+  },
+  {
+    path:'MiCarritoCompras',
+    loadChildren: () => import('./pages/productos/carrito-compras/carrito-compras.module').then(m => m.CarritoComprasModule)
   }
 ];
 

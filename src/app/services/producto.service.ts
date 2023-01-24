@@ -1,13 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../environments/environments';
-import { ProductoInterface, BuscarProducto } from '../interfaces/producto.interface';
+import { ProductoInterface, BuscarProducto, CarritoProductosInterface } from '../interfaces/producto.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductoService {
 
+  public resultadoCarrito: CarritoProductosInterface[] = []
   public resultados: ProductoInterface[] = []
   constructor(private http: HttpClient) { }
 
@@ -23,7 +24,6 @@ export class ProductoService {
       this.resultados = res
     })
   }
-
   postCrearProducto(formBody: any){
     return this.http.post(`${environment.productoAPI}/CrearProducto`, formBody)
   }
@@ -33,5 +33,15 @@ export class ProductoService {
   eliminarProducto(id:number){
     return this.http.delete(`${environment.productoAPI}/EliminarProducto/${id}`)
   }
-
+  eviarCarrito(formBody: any){
+    return this.http.post(`${environment.carritoAPI}/CrearCarrito`, formBody)
+  }
+  listaCarritoProducto(): void {
+    this.http.get<CarritoProductosInterface[]>(`${environment.carritoAPI}/Listar`).subscribe(res => {
+      this.resultadoCarrito = res
+    })
+  }
+  eliminarProductoDelCarrito(id:number){
+    return this.http.delete(`${environment.carritoAPI}/EliminarDelCarrito/${id}`)
+  }
 }

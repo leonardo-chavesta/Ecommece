@@ -10,7 +10,7 @@ import { ProductoService } from '../../../services/producto.service';
 export class CrearProductoComponent implements OnInit  {
 
   miFormulario!: FormGroup
-
+  
   
 
   constructor(
@@ -27,13 +27,14 @@ export class CrearProductoComponent implements OnInit  {
   }
 
   initForm():FormGroup{
+    const localStore = JSON.parse(localStorage.getItem('ApplicationData')!) ?? null
+    const idUsuario = localStore?.data?.id ?? null
     return this.fb.group({
       idCategoria: ['1'],
       nombre: [''],
       descripcion: [''],
-      precio: ['']
+      precio: [''],
+      idUsuario:[idUsuario]
     })
   }
-
-
 }

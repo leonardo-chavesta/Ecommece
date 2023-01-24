@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
   onSubmit(): void {
     this.authSvc.autentificarLogin(this.loginForm.value).subscribe((res: any) => {
       this.resulForm = res
+      console.log(res)
       if (this.resulForm.message == 'Token generado correctamente.') {
         localStorage.setItem('ApplicationData', JSON.stringify(this.resulForm))
         this.verif = true

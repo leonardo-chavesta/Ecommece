@@ -13,8 +13,8 @@
 
         <a href="#" class="text-base  text-white font-bold hover:text-gray-900 no-underline">Moda</a>
 
-        <div class=" space-x-10">
-          <a class="text-base  text-white font-bold hover:text-gray-900 no-underline">Mi Carrito</a>
+        <div class=" space-x-10" *ngIf="verific" >
+          <a routerLink="/MiCarritoCompras" class="text-base  text-white font-bold hover:text-gray-900 no-underline">Mi Carrito</a>
           <a routerLink="/GenerarProducto"
           class="text-base  text-white font-bold hover:text-gray-900 no-underline">Vender Producto</a>
         </div>

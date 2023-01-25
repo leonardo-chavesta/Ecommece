@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ProductoGenerar } from 'src/app/interfaces/producto.interface';
 import { ProductoService } from '../../../services/producto.service';
 
 @Component({
@@ -11,6 +10,8 @@ import { ProductoService } from '../../../services/producto.service';
 export class CrearProductoComponent implements OnInit  {
 
   miFormulario!: FormGroup
+  
+  
 
   constructor(
     private productoSvc: ProductoService,
@@ -26,13 +27,14 @@ export class CrearProductoComponent implements OnInit  {
   }
 
   initForm():FormGroup{
+    const localStore = JSON.parse(localStorage.getItem('ApplicationData')!) ?? null
+    const idUsuario = localStore?.data?.id ?? null
     return this.fb.group({
       idCategoria: ['1'],
       nombre: [''],
       descripcion: [''],
-      precio: ['']
+      precio: [''],
+      idUsuario:[idUsuario]
     })
   }
-
-
 }

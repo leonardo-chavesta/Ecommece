@@ -19,6 +19,18 @@ const routes: Routes = [
   {
     path:'GenerarProducto',
     loadChildren: () => import('./pages/productos/crear-producto/crear-producto.module').then(m => m.CrearProductoModule)
+  },
+  {
+    path:'login',
+    loadChildren: () => import('./pages/auth/login/login.module').then(m => m.LoginModule)
+  },
+  {
+    path:'perfil',
+    loadChildren: () => import('./pages/auth/perfil/perfil.module').then(m => m.PerfilModule)
+  },
+  {
+    path:'MiCarritoCompras',
+    loadChildren: () => import('./pages/productos/carrito-compras/carrito-compras.module').then(m => m.CarritoComprasModule)
   }
 ];
 

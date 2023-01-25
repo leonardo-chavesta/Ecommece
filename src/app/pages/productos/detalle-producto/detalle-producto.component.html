@@ -61,8 +61,8 @@
         <div class="mt-10">
           <h2 class="font-medium text-gray-900">Precio: $/{{detalle.precio | number}}</h2>
         </div>
-        <button (click)="EliminarProducto()" class="btn btn-danger mt-5">Eliminar Producto</button>
-        <button (click)="enviarProductoCarrito()" class="btn btn-warning mt-5">Añadir al Carrito</button>
+          <button *ngIf="validar" (click)="EliminarProducto()" class="btn btn-danger mt-5">Eliminar Producto</button>
+          <button *ngIf="!validar" (click)="enviarProductoCarrito()" class="btn btn-warning mt-5">Añadir al Carrito</button>
       </div>
     </div>
   </div>

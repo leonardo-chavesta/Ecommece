@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
   verificAutentificacion(): boolean {
     const localStore = JSON.parse(localStorage.getItem('ApplicationData')!)
     if (localStore) {
-      if (localStore.message === 'Token generado correctamente.') return this.verific = true
+      if (localStore.isSuccess) return this.verific = true
       
     }
     return this.verific = false

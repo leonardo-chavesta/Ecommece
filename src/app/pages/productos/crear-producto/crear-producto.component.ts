@@ -10,9 +10,6 @@ import { ProductoService } from '../../../services/producto.service';
 export class CrearProductoComponent implements OnInit  {
 
   miFormulario!: FormGroup
-  
-  
-
   constructor(
     private productoSvc: ProductoService,
     private fb: FormBuilder,

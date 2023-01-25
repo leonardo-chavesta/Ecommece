@@ -9,11 +9,19 @@ export interface LoginInterface {
     contrasenia: string
 }
 export interface RegisterInterface {
-   nombre: string,
-   correo:string,
-   contrasenia: string,
-   direccion: string,
-   telefono: number,
-   fechaNacimiento: string,
-   idRoles: number,
+    nombre: string,
+    correo: string,
+    contrasenia: string,
+    direccion: string,
+    telefono: number,
+    fechaNacimiento: string,
+    idRoles: number,
+}
+
+export interface DetalleUsuarioInterface {
+    nombre: string,
+    correo: string,
+    direccion: string,
+    telefono: number,
+    fechaNacimiento: string
 }

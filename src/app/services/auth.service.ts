@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
-import { LoginInterface, RegisterInterface } from '../interfaces/auth.interface';
+import { LoginInterface, RegisterInterface, DetalleUsuarioInterface } from '../interfaces/auth.interface';
 import { environment } from '../environments/environments';
 
 
@@ -19,6 +19,10 @@ export class AuthService {
     console.log("DatoAPI =>",formBody ) 
     return this.http.post(`${environment.authApi}/Register`, formBody);
   }
+  getDetalleUsuario(id: number) {
+    return this.http.get<DetalleUsuarioInterface>(`${environment.authApi}/ObtenerUsuario/${id}`)
+  }
+
 }
 
 

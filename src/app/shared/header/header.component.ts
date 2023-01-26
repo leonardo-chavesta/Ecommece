@@ -11,8 +11,8 @@ export class HeaderComponent implements OnInit {
   verific: boolean = false;
   miFormulario!: FormGroup;
   datosEnviarFiltro!: BuscarProducto
-  constructor(private fb: FormBuilder, private productoSvc: ProductoService) {}
-
+  constructor(private fb: FormBuilder, private productoSvc: ProductoService) { }
+  get resuls() { return this.productoSvc.resultados }
   ngOnInit(): void {
     this.miFormulario = this.initForm();
     this.verificAutentificacion();
@@ -32,7 +32,18 @@ export class HeaderComponent implements OnInit {
       categoria: [''],
     });
   }
-  peticionPorFiltro(): void {
-    console.log(this.datosEnviarFiltro);
+
+  peticionPorFiltro(): BuscarProducto {
+    return this.datosEnviarFiltro = {
+      filtro: {
+        nombre: this.miFormulario.value.nombre,
+        categoria: this.miFormulario.value.categoria
+      }
+    };
+  }
+
+
+  enviarDatos(): void {
+    this.productoSvc.listaProductosPorFiltro(this.peticionPorFiltro())
   }
 }

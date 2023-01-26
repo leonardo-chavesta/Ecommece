@@ -1,0 +1,85 @@
+<div class="flex items-center justify-center min-h-screen bg-gray-100">
+    <div class="w-5/5 bg-white shadow-lg">
+        <div class="flex justify-between p-4">
+            <div>
+                <img src="https://imgs.search.brave.com/fXpXH33RAeCH0rfK2Tgb9kxd8HuhiNhs2SQNqlfFih4/rs:fit:200:200:1/g:ce/aHR0cHM6Ly9tZWRp/YS1leHAxLmxpY2Ru/LmNvbS9kbXMvaW1h/Z2UvQzRFMEJBUUg1/cTNXMlBLU1Qxdy9j/b21wYW55LWxvZ29f/MjAwXzIwMC8wLzE2/NDUxOTkwNzM1MDM_/ZT0yMTQ3NDgzNjQ3/JnY9YmV0YSZ0PUdH/dkJFNVplU0pKeVlF/dGJ6OGlmUm1DYnJ0/XzdmbkJ0Qkh2NWZM/VVF4ZWM"
+                    alt="">
+
+            </div>
+
+        </div>
+        <div class="w-full h-0.5 bg-indigo-500"></div>
+        <div class="flex justify-between p-4">
+            <div>
+                <h6 class="font-bold">Fecha de orden : <span class="text-sm font-medium">{{fecha }}</span></h6>
+            </div>
+        </div>
+        <div class="flex justify-center p-4">
+            <div class="border-b border-gray-200 shadow">
+                <table class="">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-4 py-2 text-xs text-gray-500 ">
+                                Nombre Producto
+                            </th>
+                            <th class="px-4 py-2 text-xs text-gray-500 ">
+                                Precio
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white">
+                        <div >
+                            <tr *ngFor="let item of resustadoCarrito" class="whitespace-nowrap">
+                                <td class="px-6 py-4">
+                                    <div class="text-sm text-gray-900">
+                                        {{item.nombre}}
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="text-sm text-gray-500">
+                                        $/ {{item.precio | number}}
+                                    </div>
+                                </td>
+                            </tr>
+
+                        </div>
+                        <tr class="">
+                            <td colspan="2"></td>
+                            <td class="text-sm font-bold">Sub Total</td>
+                            <td class="text-sm font-bold tracking-wider"><b>$/{{resultadoSubTotal | number}}</b></td>
+                        </tr>
+                        <tr>
+                            <th colspan="2"></th>
+                            <td class="text-sm font-bold"><b>Igv</b></td>
+                            <td class="text-sm font-bold"><b>$18%</b></td>
+                        </tr>
+                        <tr class="text-white bg-gray-800">
+                            <th colspan="2"></th>
+                            <td class="text-sm font-bold"><b>Total</b></td>
+                            <td class="text-sm font-bold"><b>{{resultadoTotal | number}}</b></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="flex justify-between p-4">
+            <div>
+                <h3 class="text-xl text-green-800">Compra Exitosa :</h3>
+                <ul class="text-xs list-disc list-inside">
+                    <p>¡Gracias por visitarnos y hacer su primera compra! Estamos contentos de que haya encontrado lo
+                        que estaba buscando. Nuestro objetivo es que siempre esté satisfecho, así que avísenos si su
+                        nivel de satisfacción. Esperamos volver a verle de nuevo. ¡Que tengas un gran día!</p>
+                </ul>
+            </div>
+            <div class="p-4">
+                <div class="text-4xl italic text-indigo-500">
+                    <img src="https://img.freepik.com/vector-premium/ilustracion-viernes-negro-linda-mascota-caramelo_152558-24457.jpg?w=360"
+                        alt="">
+                </div>
+            </div>
+        </div>
+        <div class="w-full h-0.5 bg-indigo-500"></div>
+
+
+    </div>
+</div>

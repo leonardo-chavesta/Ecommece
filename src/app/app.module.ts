@@ -8,6 +8,7 @@ import {HttpClientModule} from '@angular/common/http'
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ErrorTailorModule } from '@ngneat/error-tailor';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { ErrorTailorModule } from '@ngneat/error-tailor';
     SharedModule,
     RouterModule,
     HttpClientModule,
+    BrowserAnimationsModule,
     
   ],
   providers: [

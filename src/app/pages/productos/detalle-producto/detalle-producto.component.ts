@@ -23,16 +23,18 @@ export class DetalleProductoComponent implements OnInit {
     this.ObtenerDetalle()
   }
   ObtenerDetalle(): void {
+    const localStore = JSON.parse(localStorage.getItem('ApplicationData')!) ?? null
+    const idUsuario = localStore?.data?.id ?? null
     this.roter.params.pipe(take(1)).subscribe((params) => {
       this.id = params['id'];
       this.productoSvc.getDetalleProducto(this.id).subscribe((res: ProductoInterface) => {
         this.detalle = res
-        console.log(this.verificarProductoUsuario(res))
+        this.verificarProductoUsuario(res)
         this.detalleCarrito = {
           Nombre: res.nombre,
           Descripcion: res.descripcion,
           Precio: res.precio,
-
+          IdUsuario:idUsuario,
         }
       })
     })

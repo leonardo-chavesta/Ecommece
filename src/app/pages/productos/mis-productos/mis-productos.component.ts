@@ -15,7 +15,4 @@ export class MisProductosComponent implements OnInit {
     this.productoSvc.buscarProductosPorIdUsuario(idUsuario)
     
   }
-
-
-
 }

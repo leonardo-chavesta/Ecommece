@@ -11,6 +11,11 @@ export class ProductoService {
   public resultadoCarrito: CarritoProductosInterface[] = []
   public resultados: ProductoInterface[] = []
   public resultadosXIdUsuario: ProductoInterface[] = []
+
+  public total: number = 0
+  public IGV: number = 0
+  public subTotal: number = 0
+
   constructor(private http: HttpClient) { }
 
   listaProductos(): void {
@@ -23,7 +28,7 @@ export class ProductoService {
       this.resultados = res
     })
   }
-  
+
   postCrearProducto(formBody: any) {
     return this.http.post(`${environment.productoAPI}/CrearProducto`, formBody)
   }
@@ -36,19 +41,23 @@ export class ProductoService {
   eviarCarrito(formBody: any) {
     return this.http.post(`${environment.carritoAPI}/CrearCarrito`, formBody)
   }
-  listaCarritoProducto(): void {
-    this.http.get<CarritoProductosInterface[]>(`${environment.carritoAPI}/Listar`).subscribe(res => {
+  listaCarritoProducto(id: number): void {
+    this.http.get<CarritoProductosInterface[]>(`${environment.carritoAPI}/BuscarComprasXUsuario/${id}`).subscribe(res => {
       this.resultadoCarrito = res
+      this.subTotal = res.reduce((acc, item) => {
+        acc += item.precio
+        return acc
+      }, 0)
+      this.IGV = this.total * 0.18
+      this.total = this.subTotal + this.IGV
     })
   }
   eliminarProductoDelCarrito(id: number) {
     return this.http.delete(`${environment.carritoAPI}/EliminarDelCarrito/${id}`)
   }
-
-  buscarProductosPorIdUsuario(id: number){
+  buscarProductosPorIdUsuario(id: number) {
     this.http.get<ProductoInterface[]>(`${environment.productoAPI}/BuscarProductoXIdUsuario/${id}`).subscribe(res => {
       this.resultadosXIdUsuario = res
-
       console.log(res)
     })
   }

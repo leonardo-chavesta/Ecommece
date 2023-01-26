@@ -24,6 +24,7 @@ export interface Carrito {
     Nombre : string,
     Descripcion : string,
     Precio : number,
+    IdUsuario:number
 }
 export interface CarritoProductosInterface {
     id: number,
@@ -32,5 +33,6 @@ export interface CarritoProductosInterface {
     precio: number,
     estado: number,
     fechaRegistro:string
+    IdUsuario: number
 }
 

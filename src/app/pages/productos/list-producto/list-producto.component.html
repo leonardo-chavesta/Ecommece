@@ -1,3 +1,4 @@
+<!-- <app-carousel></app-carousel> -->
 <div class="bg-white">
     <div class="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
       <h2 class="text-2xl font-bold tracking-tight text-gray-900">Productos</h2>
@@ -10,7 +11,7 @@
             <div>
               <p class="mt-1 text-sm text-gray-500">{{item.nombre}}</p>
               <h3 class="text-sm text-gray-700">
-                <a [routerLink]="['/detalle', item.id]" >
+                <a [routerLink]="['/home/detalle', item.id]" >
                   <span aria-hidden="true" class="absolute inset-0"></span>
                   {{item.descripcion}}
                 </a>

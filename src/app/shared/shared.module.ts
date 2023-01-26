@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 import { CargasComponent } from './cargas/cargas.component';
 import { FooterComponent } from './footer/footer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ModalFacturaComponent } from './modal-factura/modal-factura.component';
+import { CarouselComponent } from './carousel/carousel.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +14,7 @@ import { ModalFacturaComponent } from './modal-factura/modal-factura.component';
     LoadingComponent,
     CargasComponent,
     FooterComponent,
-    ModalFacturaComponent],
+    CarouselComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -26,6 +26,6 @@ import { ModalFacturaComponent } from './modal-factura/modal-factura.component';
     LoadingComponent,
     CargasComponent,
     FooterComponent,
-    ModalFacturaComponent]
+    CarouselComponent]
 })
 export class SharedModule { }

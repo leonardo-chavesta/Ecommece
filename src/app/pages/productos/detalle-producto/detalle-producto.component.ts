@@ -9,11 +9,11 @@ import { ProductoService } from '../../../services/producto.service';
   templateUrl: './detalle-producto.component.html',
 })
 export class DetalleProductoComponent implements OnInit {
-
   id!: number
   detalle!: ProductoInterface
   detalleCarrito!: Carrito
   validar: boolean = false
+  private localStore = JSON.parse(localStorage.getItem('ApplicationData')!) ?? null
   constructor(
     private roter: ActivatedRoute,
     private productoSvc: ProductoService,
@@ -46,19 +46,16 @@ export class DetalleProductoComponent implements OnInit {
     })
   }
   enviarProductoCarrito(): void {
-    const localStore = JSON.parse(localStorage.getItem('ApplicationData')!) ?? null
-    if(localStore) {
-      this.productoSvc.eviarCarrito(this.detalleCarrito).subscribe(() => this.router.navigate(['MiCarritoCompras']))
+    if(this.localStore) {
+      this.productoSvc.eviarCarrito(this.detalleCarrito).subscribe(() => this.router.navigate(['home/MiCarritoCompras']))
     }
     else{
-      window.alert("Tiene Que Logear Primero")
+      window.alert("Tiene Que Iniciar Seccion Primero")
       this.router.navigate(['/login'])
     }
   }
-
   verificarProductoUsuario(dato: any): boolean {
-    const localStore = JSON.parse(localStorage.getItem('ApplicationData')!) ?? null
-    const idUsuario = localStore?.data?.id ?? null
+    const idUsuario = this.localStore?.data?.id ?? null
     if (dato.idUsuario == idUsuario) return this.validar = true  
     return this.validar
   }

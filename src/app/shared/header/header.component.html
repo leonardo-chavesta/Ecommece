@@ -11,9 +11,9 @@
       <nav class="hidden space-x-10 md:flex items-center ">
         <a routerLink="/home" class="text-base  text-white font-bold hover:text-gray-900 no-underline">Inicio</a>
         <div class=" space-x-10" *ngIf="verific" >
-          <a routerLink="/ListMisProductos" class="text-base  text-white font-bold hover:text-gray-900 no-underline">Mi Productos</a>
-          <a routerLink="/MiCarritoCompras" class="text-base  text-white font-bold hover:text-gray-900 no-underline">Mi Carrito</a>
-          <a routerLink="/GenerarProducto"
+          <a routerLink="home/ListMisProductos" class="text-base  text-white font-bold hover:text-gray-900 no-underline">Mi Productos</a>
+          <a routerLink="home/MiCarritoCompras" class="text-base  text-white font-bold hover:text-gray-900 no-underline">Mi Carrito</a>
+          <a routerLink="home/GenerarProducto"
           class="text-base  text-white font-bold hover:text-gray-900 no-underline">Vender Producto</a>
         </div>
         <form (ngSubmit)="enviarDatos()" [formGroup]="miFormulario" class="row g-3 items-center">
@@ -50,3 +50,5 @@
 
     </div>
   </div>
+
+  

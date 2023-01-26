@@ -7,7 +7,8 @@ import { MisProductosComponent } from './mis-productos.component';
 
 @NgModule({
   declarations: [
-    MisProductosComponent],
+    // MisProductosComponent
+  ],
   imports: [
     CommonModule,
     MisProductosRoutingModule

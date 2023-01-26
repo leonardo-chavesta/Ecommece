@@ -13,6 +13,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
   imports: [
     ListarProductoRoutingModule,
     CommonModule,
+    SharedModule
   ]
 })
 export class ListProductoModule { }

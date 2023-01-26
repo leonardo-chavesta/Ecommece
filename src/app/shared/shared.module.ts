@@ -5,6 +5,7 @@ import { LoadingComponent } from './loading/loading.component';
 import { RouterModule } from '@angular/router';
 import { CargasComponent } from './cargas/cargas.component';
 import { FooterComponent } from './footer/footer.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -12,6 +13,8 @@ import { FooterComponent } from './footer/footer.component';
   declarations: [HeaderComponent, LoadingComponent, CargasComponent, FooterComponent],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
+    FormsModule,
     RouterModule
   ],
   exports: [HeaderComponent, LoadingComponent, CargasComponent, FooterComponent]

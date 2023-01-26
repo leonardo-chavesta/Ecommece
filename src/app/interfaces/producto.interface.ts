@@ -17,7 +17,7 @@ export interface ProductoGenerar {
 export interface BuscarProducto {
     filtro: {
         nombre: string,
-        categoria: string
+        categoria:string
     }
 }
 export interface Carrito {

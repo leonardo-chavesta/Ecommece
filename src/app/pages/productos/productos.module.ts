@@ -8,7 +8,6 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { CrearProductoComponent } from './crear-producto/crear-producto.component';
 import { DetalleProductoComponent } from './detalle-producto/detalle-producto.component';
 import { MisProductosComponent } from './mis-productos/mis-productos.component';
-import { ListProductoComponent } from './list-producto/list-producto.component';
 
 
 @NgModule({

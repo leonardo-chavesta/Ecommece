@@ -1,1 +1,75 @@
-<p>register works!</p>
+<div class="bg-grey-lighter min-h-screen flex flex-col">
+    <div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
+        <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
+            <h1 class="mb-8 text-3xl text-center">Regístrate</h1>
+            <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
+                <div class=" form-group">
+                    <span class=" font-bold text-slate-800">Nombre:</span>
+                    <input [controlErrorsTpl]="inputErrors" type="text"
+                        class="block border border-grey-light w-full p-3 rounded mt-3" formControlName="nombre"
+                        name="nombre" id="nombre" placeholder="Nombre" />
+
+                </div>
+
+
+                <div class="mt-2 form-group">
+                    <span class=" font-bold text-slate-800">Correo:</span>
+
+                    <input [controlErrorsTpl]="inputErrors" type="email"
+                        class="block border border-grey-light w-full p-3 rounded mt-3" formControlName="correo"
+                        name="correo" id="correo" placeholder="Correo" />
+
+                </div>
+                <div class=" mt-2 form-group">
+                    <span class=" font-bold text-slate-800 ">Contraseña:</span>
+
+
+                    <input [controlErrorsTpl]="inputErrors" type="password"
+                        class="block border border-grey-light w-full p-3 rounded mt-3" formControlName="contrasenia"
+                        name="contrasenia" id="contrasenia" placeholder="Contraseña" />
+                </div>
+                <div class=" mt-2 form-group">
+                    <span class=" font-bold text-slate-800">Dirección:</span>
+                    <input [controlErrorsTpl]="inputErrors" type="text"
+                        class="block border border-grey-light w-full p-3 rounded mt-3" formControlName="direccion"
+                        name="dirreccion" id="dirreccion" placeholder="Dirreccion" />
+                </div>
+                <div class="mt-2 form-group">
+                    <span class=" font-bold text-slate-800">Telefono:</span>
+
+                    <input [controlErrorsTpl]="inputErrors" type="number"
+                        class="block border border-grey-light w-full p-3 rounded mt-3" formControlName="telefono"
+                        name="telefono" id="telefono" placeholder="Telefono" />
+
+                </div>
+                <div class="mt-2 form-group">
+
+                    <span class=" font-bold text-slate-800">Fecha Nacimiento:</span>
+
+                    <input [controlErrorsTpl]="inputErrors" type="date"
+                        class="block border border-grey-light w-full p-3 rounded mt-3" formControlName="fechaNacimiento"
+                        name="fechaNacimiento" id="fechaNacimiento" placeholder="fechaNacimiento" />
+                </div>
+
+
+
+                <button type="submit"
+                    class="w-full text-center py-3 rounded bg-green-900 text-white hover:bg-green-dark focus:outline-none my-1">
+                    Crear Cuenta
+                </button>
+            </form>
+        </div>
+        <div class="text-grey-dark mt-6">
+            ¿Ya tienes una cuenta?
+            <a routerLink="/login" class="no-underline border-b border-blue text-blue">
+                Iniciar sesión
+            </a>.
+        </div>
+    </div>
+</div>
+
+
+<ng-template let-error let-text="text" #inputErrors>
+    <p class="text-red-400">{{ text }}</p>
+
+</ng-template>

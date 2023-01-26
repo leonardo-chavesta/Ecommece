@@ -7,9 +7,7 @@ import { SharedModule } from './shared/shared.module';
 import {HttpClientModule} from '@angular/common/http'
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { LoginComponent } from './pages/auth/login/login.component';
-import { RegisterComponent } from './pages/auth/register/register.component';
-import { PerfilComponent } from './pages/auth/perfil/perfil.component';
+import { ErrorTailorModule } from '@ngneat/error-tailor';
 
 @NgModule({
   declarations: [
@@ -18,13 +16,26 @@ import { PerfilComponent } from './pages/auth/perfil/perfil.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule,
     FormsModule,
+    ReactiveFormsModule,
+    ErrorTailorModule.forRoot({
+      errors: {
+        useValue: {
+          required: 'Campo Requerido',
+          minlength: ({ requiredLength, actualLength }) => 
+                      `Expect ${requiredLength} but got ${actualLength}`,
+          invalidAddress: error => `Address isn't valid`
+        }
+      }
+    }),
     SharedModule,
     RouterModule,
-    HttpClientModule
+    HttpClientModule,
+    
   ],
-  providers: [],
+  providers: [
+    
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
